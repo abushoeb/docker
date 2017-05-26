@@ -8,7 +8,8 @@ WORKDIR /app/docker
 ADD . /app/docker
 
 # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+# RUN pip install -r requirements.txt
+RUN pip --proxy http://proxy.lbs.alcatel-lucent.com:8000 install -r requirements.txt # with proxy
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
